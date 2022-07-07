@@ -1,0 +1,5 @@
+Descrizione:
+Realizziamo la struttura dell'esercizio come lo screenshot, strutturando tutte le parti necessarie in maniera il più possibile ordinata,
+concentrandoci nello specifico su:
+Replica della grafica, con l'aggiunta possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
+Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto presente nella struttura dati consegnata.
