@@ -27,7 +27,7 @@ padding: 0px;
     overflow: auto;
 }
 .notification_settings{
-    background-color: rgb(34, 211, 255);
+    background-color: rgb(159, 216, 248);
 }
 /* img users */
 .img_person{
@@ -61,7 +61,7 @@ padding: 0px;
     border-radius: 50%;
 }
 .setting_message i{
-    color: rgb(34, 211, 255);
+    color: rgb(159, 216, 248);
 }
 
 .main_chat{
@@ -74,4 +74,14 @@ padding: 0px;
 }
 .active{
     background-color: rgb(33, 144, 48);
+}
+.send_message{
+    background-color: rgb(220, 248, 192);
+}
+.received_message{
+    background-color: white;
+}
+.sending_time{
+    font-size: 10px;
+    color: var(--color-text);
 }

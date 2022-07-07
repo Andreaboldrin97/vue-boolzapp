@@ -3,6 +3,7 @@ const app = new Vue(
         el :'#root',
         data : {
             activeIndex : 0,
+            substringtime : '',
             contacts: [
                     {
                         name: 'Michele',
@@ -172,8 +173,16 @@ const app = new Vue(
                 console.log(indexElement)
                 return this.activeIndex = indexElement
                 
+            },
+            substringTiming : function(element){
+                element = element.slice(11,16);
+              return element
+            },
+            getFullPachIMg : function(indexElement){
+                return `./img/avatar${this.contacts[indexElement].avatar}.jpg`
             }
         }
+       
         
         
 })

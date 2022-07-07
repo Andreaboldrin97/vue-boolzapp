@@ -55,13 +55,13 @@
                     @click="currentIndex(index)">
                         <div class=" d-flex pt-2" >
                             <div class="img_person d-flex ps-2">
-                                <img :src="`./img/avatar${element.avatar}.jpg`" alt="">
+                                <img :src="getFullPachIMg(index)" alt="">
                             </div>
                             <div class="w-100 d-flex justify-content-between px-3">
                                 <div>
                                     <div class="name_person"> {{element.name}} </div>
                                     <div class="text_message_conteiner-chat ">
-                                        Ultimo messaggio inviato
+                                        Ultimo accesso oggi alle 12:00
                                     </div>
                                 </div>
                                 <div class="clock" > 12:00 </div>
@@ -73,16 +73,17 @@
                 <div class="current_chat col-9 col-lg-8 col-md-9">
                     <div class="user_chat border-start bg-light p-2 d-flex">
                         <div class="img_person d-flex">
-                            <img :src="`./img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
+                            <img :src="getFullPachIMg(activeIndex)" alt="">
                         </div>
                         <div class="w-100 d-flex justify-content-between p-2">
                             <div>
                                 <div class="name_person"> {{ contacts[activeIndex].name }} </div>
-                                <div class="text_message_conteiner-chat ">
+                                <div 
+                                class="text_message_conteiner-chat ">
                                     Ultimo accesso oggi alle 12:00
                                 </div>
                             </div>
-                            <div class="icon_user">
+                            <div class="icon_user fs-4 mt-1">
                                 <i class="fa-solid fa-magnifying-glass m-1"></i>
                                 <i class="fa-solid fa-paperclip m-1"></i>
                                 <i class="fa-solid fa-ellipsis-vertical m-1"></i>
@@ -90,10 +91,25 @@
                         </div>
                     </div>
                     <div class="main_chat">
-                        <div v-for="element in contacts[activeIndex].messages">
-                            <div v-if=" element.status == 'send' ">
-                                {{ element.status }}
+                        <div class="m-5">
+                            <div v-for="(element , index) in contacts[activeIndex].messages"
+                        class="m-2">
+                            <div 
+                            v-if="element.status == 'sent'"
+                            class="send_message col-6 offset-6 p-3 rounded-3">
+                                {{ element.message }}
+                                <div class="sending_time text-end">
+                                    {{ substringTiming(element.date) }}
+                                </div>
                             </div>
+                            <div v-if="element.status == 'received'"
+                            class="received_message col-6 p-3 rounded-3">
+                                {{ element.message }}
+                                <div class="sending_time text-end">
+                                    {{ substringTiming(element.date) }}
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <div class="text-chat-area d-flex justify-content-around p-3 ">
