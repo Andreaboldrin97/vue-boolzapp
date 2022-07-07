@@ -22,13 +22,17 @@ padding: 0px;
 .text-chat-area{
     height: 80px;
 }
+.chat_menu{
+    height: calc(100vh - 225px);
+    overflow: auto;
+}
 .notification_settings{
     background-color: rgb(34, 211, 255);
 }
 /* img users */
 .img_person{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 .img_person img{
     object-fit: cover;
@@ -56,8 +60,15 @@ padding: 0px;
     width: 50px;
     border-radius: 50%;
 }
+.setting_message i{
+    color: rgb(34, 211, 255);
+}
 
 .main_chat{
     height: calc(100vh - 160px);
     background-image: url(../img/mine.jpg);
+    overflow: auto;
+}
+.active{
+    background-color: rgb(33, 144, 48);
 }
