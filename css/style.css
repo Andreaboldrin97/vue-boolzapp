@@ -69,6 +69,9 @@ padding: 0px;
     background-image: url(../img/mine.jpg);
     overflow: auto;
 }
+.text-chat-area{
+   background-color: rgb(243, 238, 235);
+}
 .active{
     background-color: rgb(33, 144, 48);
 }
