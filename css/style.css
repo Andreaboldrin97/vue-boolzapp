@@ -5,10 +5,59 @@
    border: 1px solid rgb(249, 0, 0);
 }
 
-/* contenitori delle chat */
-.conteiner-chat{
-height: 100vh;
+/* root per i colori del testo e delle icone */
+:root {
+    --color-text : rgb(173, 169, 169)
 }
+
+/* contenitori delle chat */
+.conteiner-chat,
 .current_chat{
 height: 100vh;
+padding: 0px;
+}
+
+.box_interface,
+.user_chat,
+.text-chat-area{
+    height: 80px;
+}
+.notification_settings{
+    background-color: rgb(34, 211, 255);
+}
+/* img users */
+.img_person{
+    width: 50px;
+    height: 50px;
+}
+.img_person img{
+    object-fit: cover;
+    border-radius: 50%;
+    max-width: 60px;
+}
+.icon_user,
+.icon_serch,
+.clock{
+    color: var(--color-text);
+}
+/* font size + colore per il testo */
+.text_message_conteiner-chat,
+.link_conteiner-chat{
+    font-size: 12px;
+    color: var(--color-text);
+}
+
+.setting_message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.main_chat{
+    height: calc(100vh - 160px);
+    background-image: url(../img/mine.jpg);
 }
