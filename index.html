@@ -63,7 +63,7 @@
                             <div class="w-100 d-flex justify-content-between px-3">
                                 <div>
                                     <div class="name_person"> {{element.name}} </div>
-                                    <div class="text_message_conteiner-chat ">
+                                    <div class="text_message_conteiner-chat d-md-none d-lg-block">
                                         {{ visualLastMessage(index) }}
                                     </div>
                                 </div>
@@ -99,17 +99,31 @@
                         class="m-2">
                             <div 
                             v-if="element.status == 'sent'"
-                            class="send_message col-6 offset-6 p-2 rounded-3">
+                            class="send_message col-6 offset-6 p-2 rounded-3 dropdown"
+                            :id="'sent' + activeIndex + '_' + index "
+                            data-bs-toggle="dropdown">
                                 {{ element.message }}
-                                <div class="sending_time text-end">
+                                <div class="sending_time text-end dropdown-toggle">
                                     {{ substringTiming(element.date) }}
+                                        <ul class="dropdown-menu ropdown-menu-end" :aria-labelledby="'sent'+ activeIndex + '_' + index">
+                                          <li class="dropdown-item" >Message info </li>
+                                          <li class="dropdown-item"
+                                          @click="deleteMessage( activeIndex , index)" >Delete message </li>
+                                        </ul>
                                 </div>
                             </div>
                             <div v-if="element.status == 'received'"
-                            class="received_message col-6 p-2 rounded-3">
+                            class="received_message col-6 p-2 rounded-3 dropdown"
+                            :id="'received' + activeIndex + '_' + index"
+                            data-bs-toggle="dropdown">
                                 {{ element.message }}
-                                <div class="sending_time text-end">
+                                <div class="sending_time text-end dropdown-toggle">
                                     {{ substringTiming(element.date) }}
+                                    <ul class="dropdown-menu ropdown-menu-end" :aria-labelledby="'received' + activeIndex + '_' + index">
+                                        <li class="dropdown-item" >Message info </li>
+                                        <li class="dropdown-item"
+                                        @click="deleteMessage( activeIndex , index)"  >Delete message </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -133,6 +147,9 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 <!-- VUE SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

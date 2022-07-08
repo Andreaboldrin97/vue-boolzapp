@@ -40,11 +40,12 @@ padding: 0px;
     max-width: 60px;
 }
 .icon_user,
-.icon_serch,
-.clock{
+.icon_serch{
     color: var(--color-text);
 }
+
 /* font size + colore per il testo */
+.clock,
 .text_message_conteiner-chat,
 .link_conteiner-chat{
     font-size: 12px;
@@ -84,4 +85,8 @@ padding: 0px;
 .sending_time{
     font-size: 10px;
     color: var(--color-text);
+}
+
+.dropdown_chat{
+    
 }

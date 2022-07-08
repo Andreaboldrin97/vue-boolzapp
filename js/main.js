@@ -228,6 +228,9 @@ const app = new Vue(
                 const lastMessage = (this.contacts[indexElement].messages.length) - 1;
                return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
            },
+           deleteMessage : function(indexElement , currentIndex){
+            this.contacts[indexElement].messages.splice(currentIndex , 1)
+           }
 
             
         }
