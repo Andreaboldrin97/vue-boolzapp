@@ -6,6 +6,7 @@ const app = new Vue(
             substringtime : '',
             newMessage : '',
             searchName : '',
+            lastMessage : '',
             contacts: [
                     {
                         name: 'Michele',
@@ -216,7 +217,13 @@ const app = new Vue(
                    console.log(searchText);
                    console.log(this.contacts[i].name)
                }
+            },
+            visualLastMessage : function(indexElement){
+                this.lastMessage = (this.contacts[indexElement].messages.length) - 1;
+                return this.contacts[indexElement].messages[this.lastMessage].message
+            
             }
+
             
         }
        
