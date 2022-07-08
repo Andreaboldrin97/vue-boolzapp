@@ -5,6 +5,8 @@ const app = new Vue(
             activeIndex : 0,
             substringtime : '',
             newMessage : '',
+            searchName : '',
+            arrayNameUser: '',
             contacts: [
                     {
                         name: 'Michele',
@@ -204,6 +206,17 @@ const app = new Vue(
                             status : 'received'
                         })
                 } , 1500)
+            },
+            newArrayName : function(){
+                this.arrayNameUser = this.contacts.map((element) => {
+                    this.arrayNameUser = element.name
+                    return this.arrayNameUser;
+                })
+            },
+            searchCurrentName : function(searchText , indexElement){
+                if(!searchText == ''){
+                  console.log(this.arrayNameUser.split())
+                }
             }
             
         }
