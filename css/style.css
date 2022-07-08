@@ -56,8 +56,8 @@ padding: 0px;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    height: 50px;
-    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
     border-radius: 50%;
 }
 .setting_message i{
