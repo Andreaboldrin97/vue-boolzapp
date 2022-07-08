@@ -96,14 +96,14 @@
                         class="m-2">
                             <div 
                             v-if="element.status == 'sent'"
-                            class="send_message col-6 offset-6 p-3 rounded-3">
+                            class="send_message col-6 offset-6 p-2 rounded-3">
                                 {{ element.message }}
                                 <div class="sending_time text-end">
                                     {{ substringTiming(element.date) }}
                                 </div>
                             </div>
                             <div v-if="element.status == 'received'"
-                            class="received_message col-6 p-3 rounded-3">
+                            class="received_message col-6 p-2 rounded-3">
                                 {{ element.message }}
                                 <div class="sending_time text-end">
                                     {{ substringTiming(element.date) }}
