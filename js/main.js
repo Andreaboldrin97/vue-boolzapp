@@ -208,7 +208,8 @@ const app = new Vue(
                 } , 1500)
             },
             searchCurrentName : function(searchText){
-                this.searchText = this.searchText.toLowerCase();
+                this.searchName = this.searchName.toLowerCase();
+                
                for(let i = 0 ; i < this.contacts.length ; i++){
                    if(this.contacts[i].name.toLowerCase().includes(searchText)){
                     this.contacts[i].visible = true
@@ -222,8 +223,11 @@ const app = new Vue(
             visualLastMessage : function(indexElement){
                  const lastMessage = (this.contacts[indexElement].messages.length) - 1;
                 return this.contacts[indexElement].messages[lastMessage].message
-            
-            }
+            },
+            visualLastDateMessage : function(indexElement){
+                const lastMessage = (this.contacts[indexElement].messages.length) - 1;
+               return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
+           },
 
             
         }
