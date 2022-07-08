@@ -4,6 +4,7 @@ const app = new Vue(
         data : {
             activeIndex : 0,
             substringtime : '',
+            newMessage : '',
             contacts: [
                     {
                         name: 'Michele',
@@ -180,7 +181,21 @@ const app = new Vue(
             },
             getFullPachIMg : function(indexElement){
                 return `./img/avatar${this.contacts[indexElement].avatar}.jpg`
-            }
+            },
+            sendMessage : function(text , indexElement){
+                if(!text == ''){
+                    this.contacts[indexElement].messages.push(
+                        {
+                            date : 'data' ,
+                            message : text ,
+                            status : 'sent'
+                        });
+                }
+                console.log(this.contacts[indexElement].messages)
+             this.newMessage = '';
+                
+            },
+            
         }
        
         
