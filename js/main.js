@@ -196,7 +196,7 @@ const app = new Vue(
                 
             },
             receivedMessage : function (indexElement){
-                setTimeout(function(indexElement){
+                setTimeout(()=>{
                     this.contacts[indexElement].messages.push(
                         {
                             date : 'data' ,
