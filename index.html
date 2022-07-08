@@ -48,13 +48,14 @@
                     </span>
                     <input class="input-group-text bg-white col-10" type="search" placeholder="Cerca o inizia una nuova chat"
                   v-model="searchName"
-                  @keyup.enter="newArrayName() ;searchCurrentName(searchName , activeIndex )" >
+                  @keyup="searchCurrentName(searchName , activeIndex)" >
                 </div>
                 <div class="chat_menu">
                     <div class="box_interface border-bottom "
                     :class="{ active : index == activeIndex}"
                     v-for="(element, index) in contacts"
-                    @click="currentIndex(index)">
+                    @click="currentIndex(index)"
+                    v-if="element.visible = true">
                         <div class=" d-flex pt-2" >
                             <div class="img_person d-flex ps-2">
                                 <img :src="getFullPachIMg(index)" alt="">

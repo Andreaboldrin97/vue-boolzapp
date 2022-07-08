@@ -6,7 +6,6 @@ const app = new Vue(
             substringtime : '',
             newMessage : '',
             searchName : '',
-            arrayNameUser: '',
             contacts: [
                     {
                         name: 'Michele',
@@ -207,16 +206,16 @@ const app = new Vue(
                         })
                 } , 1500)
             },
-            newArrayName : function(){
-                this.arrayNameUser = this.contacts.map((element) => {
-                    this.arrayNameUser = element.name
-                    return this.arrayNameUser;
-                })
-            },
-            searchCurrentName : function(searchText , indexElement){
-                if(!searchText == ''){
-                  console.log(this.arrayNameUser.split())
-                }
+            searchCurrentName : function(searchText){
+               for(let i = 0 ; i < this.contacts.length ; i++){
+                   if(this.contacts[i].name.incudes(searchText)){
+                    this.contacts[i].visible = true
+                   }else{
+                    this.contacts[i].visible = false
+                   }
+                   console.log(searchText);
+                   console.log(this.contacts[i].name)
+               }
             }
             
         }
