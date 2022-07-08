@@ -99,13 +99,16 @@
                         class="m-2">
                             <div 
                             v-if="element.status == 'sent'"
-                            class="send_message col-6 offset-6 p-2 rounded-3 dropdown"
-                            :id="'sent' + activeIndex + '_' + index "
-                            data-bs-toggle="dropdown">
+                            @mouseover="visualDropChat()"
+                            class="send_message col-6 offset-6 p-2 rounded-3 dropdown msg-dropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            :id="'sent' + activeIndex + '_' + index">
                                 {{ element.message }}
                                 <div class="sending_time text-end dropdown-toggle">
                                     {{ substringTiming(element.date) }}
-                                        <ul class="dropdown-menu ropdown-menu-end" :aria-labelledby="'sent'+ activeIndex + '_' + index">
+                                        <ul 
+                                        class="dropdown-menu ropdown-menu-end" :aria-labelledby="'sent' + activeIndex + '_' + index"
+                                        :class="dropChat">
                                           <li class="dropdown-item" >Message info </li>
                                           <li class="dropdown-item"
                                           @click="deleteMessage( activeIndex , index)" >Delete message </li>
@@ -113,9 +116,9 @@
                                 </div>
                             </div>
                             <div v-if="element.status == 'received'"
-                            class="received_message col-6 p-2 rounded-3 dropdown"
-                            :id="'received' + activeIndex + '_' + index"
-                            data-bs-toggle="dropdown">
+                            class="received_message col-6 p-2 rounded-3 dropdown msg-dropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            :id="'received' + activeIndex + '_' + index">
                                 {{ element.message }}
                                 <div class="sending_time text-end dropdown-toggle">
                                     {{ substringTiming(element.date) }}

@@ -7,6 +7,7 @@ const app = new Vue(
             newMessage : '',
             searchName : '',
             lastMessage : '',
+            dropChat : '',
             contacts: [
                     {
                         name: 'Michele',
@@ -174,6 +175,7 @@ const app = new Vue(
         methods : {
             currentIndex : function(indexElement){
                 console.log(indexElement)
+                this.dropChat = 'd-none';
                 return this.activeIndex = indexElement
                 
             },
@@ -230,8 +232,15 @@ const app = new Vue(
            },
            deleteMessage : function(indexElement , currentIndex){
             this.contacts[indexElement].messages.splice(currentIndex , 1)
-           }
-
+           },
+             visualDropChat : function(){
+              this.dropChat = '';
+             },
+        //    hiddenDropChat :function(indexElement){
+        //     this.dropChat = 'd-none';
+        //     console.log(this.dropChat)
+        //     return this.dropChat[indexElement].messages
+        //    }
             
         }
        
