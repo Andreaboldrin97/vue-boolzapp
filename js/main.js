@@ -195,6 +195,16 @@ const app = new Vue(
              this.newMessage = '';
                 
             },
+            receivedMessage : function (indexElement){
+                setTimeout(function(indexElement){
+                    this.contacts[indexElement].messages.push(
+                        {
+                            date : 'data' ,
+                            message : 'ok' ,
+                            status : 'received'
+                        })
+                } , 1500)
+            }
             
         }
        

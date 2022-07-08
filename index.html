@@ -46,7 +46,8 @@
                     <span class="input-group-text icon_serch bg-white px-4" id="inputGroupPrepend2">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
-                    <input class="input-group-text bg-white col-10" type="search" placeholder="Cerca o inizia una nuova chat">
+                    <input class="input-group-text bg-white col-10" type="search" placeholder="Cerca o inizia una nuova chat"
+                   >
                 </div>
                 <div class="chat_menu">
                     <div class="box_interface border-bottom "
@@ -120,7 +121,7 @@
                             <input class="form-control" 
                             placeholder="Scrivi un messaggio"
                             v-model.trim="newMessage"
-                            @keyup.enter="sendMessage(newMessage , activeIndex)"></input>
+                            @keyup.enter="sendMessage(newMessage , activeIndex);receivedMessage(activeIndex)"></input>
                         </div>
                         <div class="col-1 text-end fs-4 align-self-center">
                             <i class="fa-solid fa-microphone pe-1 text-secondary"></i>
