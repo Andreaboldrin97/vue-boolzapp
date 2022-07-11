@@ -122,7 +122,8 @@
                                             <ul 
                                             class="dropdown-menu ropdown-menu-end" :aria-labelledby="'sent' + activeIndex + '_' + index"
                                             :class="dropChat">
-                                            <li class="dropdown-item" >Message info </li>
+                                            <li class="dropdown-item"
+                                            @click="showInfoMessage(index , activeIndex)" >Message info </li>
                                             <li class="dropdown-item"
                                             @click="deleteMessage( activeIndex , index)" >Delete message </li>
                                             </ul>
@@ -137,7 +138,8 @@
                                         {{ substringTiming(element.date) }}
                                         </ul>
                                         <ul class="dropdown-menu ropdown-menu-end" :aria-labelledby="'received' + activeIndex + '_' + index">
-                                            <li class="dropdown-item" >Message info </li>
+                                            <li class="dropdown-item" 
+                                            @click="showInfoMessage(index , activeIndex)">Message info </li>
                                             <li class="dropdown-item"
                                             @click="deleteMessage( activeIndex , index)"  >Delete message </li>
                                         </ul>

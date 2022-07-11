@@ -249,6 +249,12 @@ const app = new Vue(
             deleteMessage : function(indexElement , currentIndex){
                     this.contacts[indexElement].messages.splice(currentIndex , 1);
            },
+           //! viene mostrato un alert con ora e data del messaggio (click su "INFO MESSAGGIO" --> dropdown)
+            showInfoMessage: function (messageIndex , indexElement) {
+            let singleArrayMessage = this.contacts[indexElement].messages;
+            let infoMessage = singleArrayMessage[messageIndex].date;
+            alert(`Info messaggio: ${infoMessage}`)
+        },
            //! funzione per azzarare il dropdown sul click di una nuova chat
             visualDropChat : function(){
               this.dropChat = '';
