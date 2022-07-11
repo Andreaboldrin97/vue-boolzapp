@@ -262,14 +262,15 @@ const app = new Vue(
             lastAccess : function (indexElement){
                 let messages = this.contacts[indexElement].messages;
                 if(messages.length > 0){
-                    let lastMessage = (this.contacts[indexElement].messages.length) - 1;
                     const received = this.contacts[indexElement].messages.filter((element)=>{
                         if(element.status == 'received'){
                             return true
+                        }else{
+                            return false
                         }
                     })
                     console.log(received)
-                    if(received != null){
+                    if(received.length > 0 ){
                         return received[received.length-1].date
                     }else{
                         // lastMessage = moment(new Date(+(new Date()) - Math.floor(Math.random()*10000000000)))
