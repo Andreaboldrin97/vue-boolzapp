@@ -8,6 +8,7 @@ const app = new Vue(
             searchName : '',
             lastMessage : '',
             dropChat : '',
+            currentDate : '',
             contacts: [
                     {
                         name: 'Michele',
@@ -190,7 +191,7 @@ const app = new Vue(
                 if(!text == ''){
                     this.contacts[indexElement].messages.push(
                         {
-                            date : 'data' ,
+                            date : this.currentDate ,
                             message : text ,
                             status : 'sent'
                         });
@@ -203,7 +204,7 @@ const app = new Vue(
                 setTimeout(()=>{
                     this.contacts[indexElement].messages.push(
                         {
-                            date : 'data' ,
+                            date : this.currentDate ,
                             message : 'ok' ,
                             status : 'received'
                         })
@@ -230,18 +231,18 @@ const app = new Vue(
                 const lastMessage = (this.contacts[indexElement].messages.length) - 1;
                return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
            },
-           deleteMessage : function(indexElement , currentIndex){
+            deleteMessage : function(indexElement , currentIndex){
             this.contacts[indexElement].messages.splice(currentIndex , 1)
            },
-             visualDropChat : function(){
+            visualDropChat : function(){
               this.dropChat = '';
-             },
-        //    hiddenDropChat :function(indexElement){
-        //     this.dropChat = 'd-none';
-        //     console.log(this.dropChat)
-        //     return this.dropChat[indexElement].messages
-        //    }
-            
+            },
+            dateCurrent : function(){
+                this.currentDate = moment().format('MM,DD,YY,  h:mm:ss ');
+                return this.currentDate.slice(11,16);
+            }
+        },created (){
+            this.dateCurrent();
         }
        
         
