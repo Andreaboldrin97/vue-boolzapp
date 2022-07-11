@@ -9,6 +9,7 @@ const app = new Vue(
             lastMessage : '',
             dropChat : '',
             currentDate : '',
+            noMessages : 'd-none',
             contacts: [
                     {
                         name: 'Michele',
@@ -232,13 +233,20 @@ const app = new Vue(
                return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
            },
             deleteMessage : function(indexElement , currentIndex){
-            this.contacts[indexElement].messages.splice(currentIndex , 1)
+            this.contacts[indexElement].messages.splice(currentIndex , 1);
+            console.log(this.contacts[indexElement].messages.length);
+                if(this.contacts[indexElement].messages.length == 0){
+                    console.log('hai eliminato tutti i messaggi')
+                    this.noMessages = 'd-block';
+                    console.log(this.noMessages)
+                }
+                return this.noMessages
            },
             visualDropChat : function(){
               this.dropChat = '';
             },
             dateCurrent : function(){
-                this.currentDate = moment().format('MM/DD/YY   h:mm:ss ');
+                this.currentDate = moment().format('MM/DD/YY   hh:mm:ss ');
                 return this.currentDate.slice(11,16);
             },
             lastAccess : function (indexElement){
