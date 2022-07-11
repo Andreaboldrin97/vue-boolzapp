@@ -237,16 +237,14 @@ const app = new Vue(
                 
             },
             visualLastDateMessage : function(indexElement){
-                const lastMessage = (this.contacts[indexElement].messages.length) - 1;
-               return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
+                let messages = this.contacts[indexElement].messages;
+                if( messages.length > 0){
+                    const lastMessage = (this.contacts[indexElement].messages.length) - 1;
+                    return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
+                }
            },
             deleteMessage : function(indexElement , currentIndex){
-                if((this.contacts[indexElement].messages.length != 1)){
                     this.contacts[indexElement].messages.splice(currentIndex , 1);
-                }else{
-                    this.noMessages = 'd-block';
-                    this.message = 'd-none'
-                }
            },
             visualDropChat : function(){
               this.dropChat = '';
