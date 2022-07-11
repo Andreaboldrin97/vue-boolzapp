@@ -238,9 +238,14 @@ const app = new Vue(
               this.dropChat = '';
             },
             dateCurrent : function(){
-                this.currentDate = moment().format('MM,DD,YY,  h:mm:ss ');
+                this.currentDate = moment().format('MM/DD/YY   h:mm:ss ');
                 return this.currentDate.slice(11,16);
+            },
+            lastAccess : function (indexElement){
+                const lastMessage = (this.contacts[indexElement].messages.length) - 1;
+                return this.contacts[indexElement].messages[lastMessage].date
             }
+
         },created (){
             this.dateCurrent();
         }

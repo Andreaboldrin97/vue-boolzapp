@@ -82,8 +82,9 @@
                             <div>
                                 <div class="name_person"> {{ contacts[activeIndex].name }} </div>
                                 <div 
-                                class="text_message_conteiner-chat ">
-                                    Ultimo accesso oggi alle 12:00
+                                class="text_message_conteiner-chat "
+                                >
+                                    {{ `Ultimo accesso ${lastAccess(activeIndex)}`}}
                                 </div>
                             </div>
                             <div class="icon_user fs-4 mt-1">
