@@ -10,6 +10,7 @@ const app = new Vue(
             dropChat : '',
             currentDate : '',
             noMessages : 'd-none',
+            message : '' ,
             contacts: [
                     {
                         name: 'Michele',
@@ -173,11 +174,13 @@ const app = new Vue(
                         ],
                     }
             ],
+    
         },
         methods : {
             currentIndex : function(indexElement){
                 console.log(indexElement)
                 this.dropChat = 'd-none';
+                this.noMessages = 'd-none';
                 return this.activeIndex = indexElement
                 
             },
@@ -233,14 +236,12 @@ const app = new Vue(
                return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
            },
             deleteMessage : function(indexElement , currentIndex){
-            this.contacts[indexElement].messages.splice(currentIndex , 1);
-            console.log(this.contacts[indexElement].messages.length);
-                if(this.contacts[indexElement].messages.length == 0){
-                    console.log('hai eliminato tutti i messaggi')
+                if((this.contacts[indexElement].messages.length != 1)){
+                    this.contacts[indexElement].messages.splice(currentIndex , 1);
+                }else{
                     this.noMessages = 'd-block';
-                    console.log(this.noMessages)
+                    this.message = 'd-none'
                 }
-                return this.noMessages
            },
             visualDropChat : function(){
               this.dropChat = '';
