@@ -273,9 +273,9 @@ const app = new Vue(
                     if(received.length > 0 ){
                         return received[received.length-1].date
                     }else{
-                        // lastMessage = moment(new Date(+(new Date()) - Math.floor(Math.random()*10000000000)))
-                        // .format('hh:mm');
-                        // return lastMessage
+                        lastMessage = moment(new Date(+(new Date()) - Math.floor(Math.random()*10000000000)))
+                        .format('hh:mm');
+                        return lastMessage
                     }
                     
                 }
