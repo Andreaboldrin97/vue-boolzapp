@@ -228,8 +228,13 @@ const app = new Vue(
                }
             },
             visualLastMessage : function(indexElement){
-                 const lastMessage = (this.contacts[indexElement].messages.length) - 1;
+                if((this.contacts[indexElement].messages.length > 0)){
+                    const lastMessage = (this.contacts[indexElement].messages.length) - 1;
                 return this.contacts[indexElement].messages[lastMessage].message
+                }else{
+                  
+                }
+                
             },
             visualLastDateMessage : function(indexElement){
                 const lastMessage = (this.contacts[indexElement].messages.length) - 1;
