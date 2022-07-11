@@ -5,10 +5,11 @@ const app = new Vue(
             activeIndex : 0,
             substringtime : '',
             newMessage : '',
+            //parametro preso per metterlo in lowercase
             searchName : '',
+            //creata per cambiare la classe sul problema del dropdown menu 
             dropChat : '',
             currentDate : '',
-            noMessages : 'd-none',
             contacts: [
                     {
                         name: 'Michele',
@@ -175,19 +176,23 @@ const app = new Vue(
     
         },
         methods : {
+            //! funzione per indicare al clik la chat
             currentIndex : function(indexElement){
                 console.log(indexElement)
                 this.dropChat = 'd-none';
                 return this.activeIndex = indexElement
                 
             },
+            //! funzione per prendere solo ora e secondi
             substringTiming : function(element){
                 element = element.slice(11,16);
               return element
             },
+            //! funzioni per le img
             getFullPachIMg : function(indexElement){
                 return `./img/avatar${this.contacts[indexElement].avatar}.jpg`
             },
+            //! funzione per inviare il messaggio ricevuto da l'user e pusharlo nell'array messagges
             sendMessage : function(text , indexElement){
                 if(!text == ''){
                     this.contacts[indexElement].messages.push(
@@ -197,10 +202,11 @@ const app = new Vue(
                             status : 'sent'
                         });
                 }
-                console.log(this.contacts[indexElement].messages)
+                //*variabile di azzeramento
              this.newMessage = '';
                 
             },
+            //! funzione di risposta dell'user con arrayFunction per la funzionalità del this
             receivedMessage : function (indexElement){
                 setTimeout(()=>{
                     this.contacts[indexElement].messages.push(
@@ -211,6 +217,7 @@ const app = new Vue(
                         })
                 } , 1500)
             },
+            //! funzione per la ricerca del nome
             searchCurrentName : function(searchText){
                 this.searchName = this.searchName.toLowerCase();
                 
@@ -222,6 +229,7 @@ const app = new Vue(
                    }
                }
             },
+            //! funzione per vedere l'ultimo messagge
             visualLastMessage : function(indexElement){
                 let messages = this.contacts[indexElement].messages;
                 if(messages.length > 0){
@@ -229,6 +237,7 @@ const app = new Vue(
                 return this.contacts[indexElement].messages[lastMessage].message
                 }  
             },
+            //! funzione per vedere l'ultima data del messagge
             visualLastDateMessage : function(indexElement){
                 let messages = this.contacts[indexElement].messages;
                 if( messages.length > 0){
@@ -236,16 +245,20 @@ const app = new Vue(
                     return this.contacts[indexElement].messages[lastMessage].date.slice(11,16)
                 }
            },
+           //! funzione cancellazzione messagge
             deleteMessage : function(indexElement , currentIndex){
                     this.contacts[indexElement].messages.splice(currentIndex , 1);
            },
+           //! funzione per azzarare il dropdown sul click di una nuova chat
             visualDropChat : function(){
               this.dropChat = '';
             },
+            //! funzione per la data corrente per l'invio dell messagge dell'user
             dateCurrent : function(){
                 this.currentDate = moment().format('MM/DD/YY   hh:mm:ss ');
                 return this.currentDate.slice(11,16);
             },
+            //! funzione per vedere l'ultimo accesso dell'userchat
             lastAccess : function (indexElement){
                 let messages = this.contacts[indexElement].messages;
                 if(messages.length > 0){
@@ -267,7 +280,9 @@ const app = new Vue(
                 }
             }
 
-        },created (){
+        },
+        //? funzione per chiamare la dateCurrent nella window
+        created (){
             this.dateCurrent();
         }
        
