@@ -6,11 +6,9 @@ const app = new Vue(
             substringtime : '',
             newMessage : '',
             searchName : '',
-            lastMessage : '',
             dropChat : '',
             currentDate : '',
             noMessages : 'd-none',
-            message : '' ,
             contacts: [
                     {
                         name: 'Michele',
@@ -180,7 +178,6 @@ const app = new Vue(
             currentIndex : function(indexElement){
                 console.log(indexElement)
                 this.dropChat = 'd-none';
-                this.noMessages = 'd-none';
                 return this.activeIndex = indexElement
                 
             },
@@ -223,18 +220,14 @@ const app = new Vue(
                    }else{
                     this.contacts[i].visible = false
                    }
-                   console.log(searchText);
-                   console.log(this.contacts[i].name)
                }
             },
             visualLastMessage : function(indexElement){
-                if((this.contacts[indexElement].messages.length > 0)){
+                let messages = this.contacts[indexElement].messages;
+                if(messages.length > 0){
                     const lastMessage = (this.contacts[indexElement].messages.length) - 1;
                 return this.contacts[indexElement].messages[lastMessage].message
-                }else{
-                  
-                }
-                
+                }  
             },
             visualLastDateMessage : function(indexElement){
                 let messages = this.contacts[indexElement].messages;
@@ -254,8 +247,22 @@ const app = new Vue(
                 return this.currentDate.slice(11,16);
             },
             lastAccess : function (indexElement){
-                const lastMessage = (this.contacts[indexElement].messages.length) - 1;
-                return this.contacts[indexElement].messages[lastMessage].date
+                let messages = this.contacts[indexElement].messages;
+                if(messages.length > 0){
+                    let lastMessage = (this.contacts[indexElement].messages.length) - 1;
+                    
+                    for (let i = 0 ;i < this.contacts[indexElement].messages.length; i++){
+                        let lastMReceived = this.contacts[indexElement].messages[i].status
+                        console.log(lastMReceived)
+                        if (lastMReceived== 'received'){
+                            return this.contacts[indexElement].messages[lastMessage].date
+                        }else{
+                            lastMessage = moment(new Date(+(new Date()) - Math.floor(Math.random()*10000000000)))
+                            .format('hh:mm');
+                            return lastMessage
+                        }
+                    }
+                }
             }
 
         },created (){
