@@ -17,7 +17,11 @@
     
     <div class="container-fluid" id="root">
         <div class="row">
+
+            <!-- contenitore del user -->
             <div class="conteiner-chat col-4 col-lg-5 col-md-4">
+
+                <!-- dati user -->
                 <div class="box_interface bg-light p-2 d-flex">
                     <div class="img_person d-flex">
                         <img src="./img/my-img.jpeg" alt="">
@@ -42,6 +46,8 @@
                         <a class="link_conteiner-chat d-sm-none d-md-block " href="#">Attiva notifiche desktop</a>
                     </div>
                 </div>
+
+                <!-- contenitore chat dell'user -->
                 <div class="search_chat input-group p-2 bg-light">
                     <span class="input-group-text icon_serch bg-white px-4 d-sm-none d-md-none d-lg-block" id="inputGroupPrepend2">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -73,7 +79,11 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- contenitore della schermata chat -->
                 <div class="current_chat col-8 col-lg-7 col-md-8">
+
+                    <!-- contenitore del profilo della persona a cui inviare il messaggio -->
                     <div class="user_chat border-start bg-light p-2 d-flex">
                         <div class="img_person d-flex">
                             <img :src="getFullPachIMg(activeIndex)" alt="">
@@ -94,6 +104,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- corpo della chat -->
                     <div class="main_chat">
                         <div class="m-5">
                             <div v-for="(element , index) in contacts[activeIndex].messages"
@@ -133,6 +145,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- area per digitare il messaggio da parte dell'user -->
                     <div class="text-chat-area d-flex justify-content-around p-3 ">
                         <div class="col-1 fs-4 align-self-center ps-1">
                             <i class="fa-regular fa-face-smile text-secondary"></i>
