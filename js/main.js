@@ -250,18 +250,20 @@ const app = new Vue(
                 let messages = this.contacts[indexElement].messages;
                 if(messages.length > 0){
                     let lastMessage = (this.contacts[indexElement].messages.length) - 1;
-                    
-                    for (let i = 0 ;i < this.contacts[indexElement].messages.length; i++){
-                        let lastMReceived = this.contacts[indexElement].messages[i].status
-                        console.log(lastMReceived)
-                        if (lastMReceived== 'received'){
-                            return this.contacts[indexElement].messages[lastMessage].date
-                        }else{
-                            lastMessage = moment(new Date(+(new Date()) - Math.floor(Math.random()*10000000000)))
-                            .format('hh:mm');
-                            return lastMessage
+                    const received = this.contacts[indexElement].messages.filter((element)=>{
+                        if(element.status == 'received'){
+                            return true
                         }
+                    })
+                    console.log(received)
+                    if(received != null){
+                        return received[received.length-1].date
+                    }else{
+                        // lastMessage = moment(new Date(+(new Date()) - Math.floor(Math.random()*10000000000)))
+                        // .format('hh:mm');
+                        // return lastMessage
                     }
+                    
                 }
             }
 
