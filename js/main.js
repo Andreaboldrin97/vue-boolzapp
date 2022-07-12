@@ -194,20 +194,14 @@ const app = new Vue(
             },
             //! funzione per inviare il messaggio ricevuto da l'user e pusharlo nell'array messagges
             sendMessage : function(text , indexElement){
-                if(!text == ''){
+                if(text !== ''){
                     this.contacts[indexElement].messages.push(
                         {
                             date : this.currentDate ,
                             message : text ,
                             status : 'sent'
                         });
-                }
-                //*variabile di azzeramento
-             this.newMessage = '';
-                
-            },
-            //! funzione di risposta dell'user con arrayFunction per la funzionalità del this
-            receivedMessage : function (indexElement){
+                           //! funzione di risposta dell'user con arrayFunction per la funzionalità del this
                 setTimeout(()=>{
                     this.contacts[indexElement].messages.push(
                         {
@@ -216,7 +210,11 @@ const app = new Vue(
                             status : 'received'
                         })
                 } , 1500)
+                }
+                    //*variabile di azzeramento
+             this.newMessage = '';     
             },
+       
             //! funzione per la ricerca del nome
             searchCurrentName : function(searchText){
                 this.searchName = this.searchName.toLowerCase();
